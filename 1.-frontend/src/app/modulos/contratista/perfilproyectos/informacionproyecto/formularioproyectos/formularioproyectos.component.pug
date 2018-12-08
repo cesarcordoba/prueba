@@ -1,0 +1,31 @@
+mat-card.componente
+    .boton-editar
+        a(mat-button, (click)="editar()") Editar
+            mat-icon edit
+    form.formulario(class="example-form")
+        mat-form-field
+            input(matInput, placeholder="Nombre", [(ngModel)]="proyecto.nombre",  name="nombre", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Resumen", [(ngModel)]="proyecto.resumen",  name="resumen", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Meta Establecida", [(ngModel)]="proyecto.meta",  name="meta", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Acumulado", [(ngModel)]="proyecto.acumulado",  name="acumulado", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Monto minimo", [(ngModel)]="proyecto.minimo",  name="minimo", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Plazo estimado", [(ngModel)]="proyecto.plazo",  name="plazo", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Rendimiento estimado", [(ngModel)]="proyecto.rendimiento",  name="rendimiento", [disabled]="valid")
+        mat-form-field
+            input(matInput, placeholder="Retorno anual estimado", [(ngModel)]="proyecto.retorno",  name="retorno", [disabled]="valid")
+        mat-form-field(class="input-layout")
+            label Contenido:
+            textarea([froalaEditor]="options",
+                [(froalaModel)]="proyecto.contenido",
+                matInput name="Contenido",
+                autocomplete="off" ,
+                rows="4" ,
+                [disabled]="valid")
+    .btn-guardar
+        button(mat-raised-button (click)="aceptar()", *ngIf="!valid") Guardar Cambios

@@ -1,0 +1,14 @@
+.proyectos-grid-main
+    mat-grid-list(
+        cols="{{columnas}}",
+        rowHeight="{{height}}"
+        )
+        mat-grid-tile( *ngFor="let proyecto of proyectos?.items", [colspan]="colspan", [rowspan]="rowspan")
+            .proyecto
+                .portada
+                    img(src="{{proyecto?.portadas[0]?.link}}")
+                .info-basica
+                    h4 {{proyecto.nombre}}
+                    p {{proyecto.createdAt | date: 'mediumDate'}}
+                    p {{proyecto.resumen}}
+            

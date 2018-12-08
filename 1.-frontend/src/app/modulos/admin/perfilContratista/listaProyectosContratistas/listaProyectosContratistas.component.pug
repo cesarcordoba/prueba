@@ -1,0 +1,16 @@
+
+mat-card.componente
+    mat-toolbar
+        mat-toolbar-row(style="justify-content : space-between")
+            .titulo
+                h3 listaProyectosContratistas
+                strong Paginación
+
+
+    mat-table(mat-table, [dataSource]="proyectos", class="mat-elevation-z8")
+        ng-container(matColumnDef="nombre")
+            mat-header-cell( *matHeaderCellDef) Nombre
+            mat-cell( *matCellDef="let element") {{element.nombre}}
+        mat-header-row( *matHeaderRowDef="['nombre']")
+        mat-row(*matRowDef="let row; columns: ['nombre'];")
+

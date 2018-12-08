@@ -1,0 +1,120 @@
+@import  '../../../defaults.styl'
+
+
+header
+    height 80px !important
+
+    mat-toolbar
+        height 80px
+        display flex
+        justify-content space-around
+        padding 0 10vw
+        .logo
+            display flex
+            justify-content center
+            align-items center
+            .logo-content
+                display flex
+                img
+                    height 63px
+                    width auto
+                h1
+                    color gray
+        .links,.menu
+            display flex
+    button
+        color gray
+
+
+
+footer
+	display flex
+	flex-direction column
+	.marcas
+		height 90px
+		background-color white
+		display flex
+		justify-content center
+		@media chica
+			height 110px
+		@media mobile
+			height 200px
+		.marcas-content
+			width 90%
+			display grid
+			flex-direccion row
+			justify-content space-between
+			align-items center
+			grid-template-columns: repeat(12, 1fr)
+			@media chica
+				grid-template-columns: repeat(6, 1fr)
+			@media tablet
+				grid-template-columns: repeat(6, 1fr)
+			@media mobile
+				grid-template-columns: repeat(3, 1fr)
+			.marca
+				display flex
+				justify-content center
+				.image-container
+					width inherit
+					img
+						max-width 90px
+						max-height 45px
+						height auto
+						filter grayscale(100%)
+						opacity .8
+	.siguenos
+		height 80px
+		background-color azul2
+		display flex
+		flex-direccion flex-end
+        background-color inherit
+		button
+			height 80px
+			width 80px
+			margin 0px
+			border-left 1px solid rgba(255, 255, 255, .1)
+			display flex
+			md-icon
+				height 40px
+				width 40px
+				svg
+					color white
+	.copyrigth
+		height 70px
+		background-color white
+		display flex
+		justify-content center
+		width 100%
+		.copy-content
+			width 90%
+			display flex
+			flex-direction row
+			justify-content space-between
+			.copy
+				padding 10px
+				.mensaje
+					p
+						font-size 11px
+						margin 5px
+				.botones
+					display flex
+					@media mobile
+						flex-direction column
+					button
+						background-color azul4
+						color white
+						min-width inherit
+						min-height inherit
+						margin 0px 5px
+						padding 3px
+						font-size 11px
+						line-height 11px
+			.starbrand
+				button
+					height 70px
+					margin 0px
+					border-radius 0px
+					mat-icon
+						width 150px
+						height auto

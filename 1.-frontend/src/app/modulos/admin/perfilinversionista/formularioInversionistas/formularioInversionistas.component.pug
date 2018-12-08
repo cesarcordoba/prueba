@@ -1,0 +1,13 @@
+
+mat-card.componente
+    h1 {{ usuario?.nombre }}
+    form(class="example-form")
+            mat-form-field
+                input(matInput, placeholder="Busca un nombre", [(ngModel)]="usuario.nombre",  name="nombre")
+            mat-form-field
+                input(matInput, placeholder="Busca un apellido", [(ngModel)]="usuario.apellido",  name="apellido")
+            mat-form-field
+                input(matInput, placeholder="Busca un correo", [(ngModel)]="usuario.correo",  name="correo")
+            mat-form-field
+                input(matInput, placeholder="Busca un password", [(ngModel)]="usuario.password",  name="password")
+    button(mat-raised-button (click)="aceptar()") Aceptar

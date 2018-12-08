@@ -1,0 +1,26 @@
+mat-card.componente
+    h4 Información complementaria
+    form(class="example-form")
+            mat-form-field
+                input(matInput, placeholder="Dirección", [(ngModel)]="contratista.direccion",  name="direccion")
+            mat-form-field
+                input(matInput, placeholder="Telefono", [(ngModel)]="contratista.telefono",  name="telefono")
+            mat-form-field
+                input(matInput, placeholder="Pagina Web", [(ngModel)]="contratista.paginaWeb",  name="paginaWeb")
+            mat-form-field
+                input(matInput, placeholder="Número promedio anual de casas", [(ngModel)]="contratista.numPromAnaualCasas",  name="numPromAnaualCasas")
+            mat-form-field
+                input(matInput, placeholder="Costo promedio", [(ngModel)]="contratista.costoPromedio",  name="costoPromedio")
+            mat-form-field
+                input(matInput, placeholder="Volumen", [(ngModel)]="contratista.volumen",  name="volumen")
+    .arquitecto(*ngIf="arquitecto")
+        h1 Informacion del Arquitecto
+        p Cédula Profesional: {{arquitecto.cedula}}
+    .constructora(*ngIf="constructora")
+        h1 Informacion de la Constructora
+        p Nombre: {{constructora.nombreConstructora}}
+        p Director: {{constructora.director}}
+        p Direccion: {{constructora.direccion}}
+        p Fecha de constitución: {{constructora.fecha_constitucion}}
+        p R.F.C.: {{constructora.rfc}}
+    button(mat-raised-button (click)="aceptar()") Aceptar

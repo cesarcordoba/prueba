@@ -1,0 +1,113 @@
+mat-card.componente
+    .contenedor-izquierdo
+        .datos-usuario
+            .barra-editar-ususario-contratista
+                button(mat-button, (click)="editarUsuario()")
+                    span(*ngIf="!edicion_usuario") Editar
+                    mat-icon(*ngIf="!edicion_usuario") edit
+                    span(*ngIf="edicion_usuario") Cancelar
+                    mat-icon(*ngIf="edicion_usuario") clear
+            .usuario-contratista
+                .antes-edicion(*ngIf="!edicion_usuario")
+                    p {{usuario?.nombre}}
+                    p {{usuario?.apellido}}
+                    p {{usuario?.correo}}
+                .edicion(*ngIf="edicion_usuario")
+                    form.formulario(class="example-form")
+                        mat-form-field
+                            input(matInput, placeholder="Nombre", [(ngModel)]="usuario.nombre",  name="nombre")
+                        mat-form-field
+                            input(matInput, placeholder="Apellido", [(ngModel)]="usuario.apellido",  name="apellido")
+                        mat-form-field
+                            input(matInput, placeholder="Correo", [(ngModel)]="usuario.correo",  name="correo")
+                    .btn-guardar-contratista
+                        button(mat-raised-button (click)="guardarUsuario()") Guardar
+        .datos.contratista
+            .barra-editar-contratista
+                button(mat-button, (click)="editarContratista()")
+                    span(*ngIf="!edicion_contratista") Editar
+                    mat-icon(*ngIf="!edicion_contratista") edit
+                    span(*ngIf="edicion_contratista") Cancelar
+                    mat-icon(*ngIf="edicion_contratista") clear
+            .contratista
+                .antes-edicion(*ngIf="!edicion_contratista")
+                    p {{contratista?.direccion}}
+                    p {{contratista?.telefono}}
+                    p {{contratista?.paginaWeb}}
+                    p {{contratista?.numPromAnaualCasas}}
+                    p {{contratista?.costoPromedio}}
+                    p {{contratista?.volumen}}
+                .edicion(*ngIf="edicion_contratista")
+                    form.formulario(class="example-form")
+                        mat-form-field
+                            input(matInput, placeholder="Direccion", [(ngModel)]="contratista.direccion",  name="direccion")
+                        mat-form-field
+                            input(matInput, placeholder="Telefono", [(ngModel)]="contratista.telefono",  name="telefono")
+                        mat-form-field
+                            input(matInput, placeholder="Pagina Web", [(ngModel)]="contratista.paginaWeb",  name="paginaWeb")
+                        mat-form-field
+                            input(matInput, placeholder="Num. prom. anual de casas", [(ngModel)]="contratista.numPromAnaualCasas",  name="numPromAnualCasas")
+                        mat-form-field
+                            input(matInput, placeholder="Costo promedio", [(ngModel)]="contratista.costoPromedio",  name="costoPromedio")
+                        mat-form-field
+                            input(matInput, placeholder="volumen", [(ngModel)]="contratista.volumen",  name="volumen")
+                    .btn-guardar-contratista
+                        button(mat-raised-button (click)="guardarContratista()") Guardar
+    .contenedor-derecho
+        .foto-perfil
+            .barra-editar-foto-contratista
+                button(mat-button, (click)="editarFotoContratista()")
+                    span(*ngIf="!edicion_foto") Editar
+                    mat-icon(*ngIf="!edicion_foto") edit
+                    span(*ngIf="edicion_foto") Cancelar
+                    mat-icon(*ngIf="edicion_foto") clear
+            .foto-contratista
+                .imagen-container(*ngIf="!edicion_foto")
+                    .imagen(*ngIf="carga==false")
+                        img([src]="fotoPerfil")
+                    mat-spinner(*ngIf="carga==true")
+                    h4 Foto de Perfil
+                .inputs(*ngIf="edicion_foto")
+                    dropify([(ngModel)]="file")
+                    button.btn-dropify(mat-icon-button, (click)="guardarFoto()")
+                        mat-icon save
+        .datos-extras
+            .barra-editar-extras
+                button(mat-button, (click)="editarExtras()")
+                    span(*ngIf="!edicion_extra") Editar
+                    mat-icon(*ngIf="!edicion_extra") edit
+                    span(*ngIf="edicion_extra") Cancelar
+                    mat-icon(*ngIf="edicion_extra") clear
+            .extras
+                .arquitecto(*ngIf="arquitecto")
+                    .antes-edicion(*ngIf="!edicion_extra")
+                        h4 Información del Arquitecto
+                        p Cédula Profesional: {{arquitecto?.cedula}}
+                    .edicion(*ngIf="edicion_extra")
+                        form.formulario(class="example-form")
+                            mat-form-field
+                                input(matInput, placeholder="Cédula Profesional", [(ngModel)]="arquitecto.cedula",  name="cedula")
+                        .btn-guardar-contratista
+                            button(mat-raised-button (click)="guardarArquitecto()") Guardar
+                .constructora(*ngIf="constructora")
+                    .antes-edicion(*ngIf="!edicion_extra")
+                        h4 Información de la Constructora
+                        p Nombre: {{constructora?.nombreConstructora}}
+                        p Director: {{constructora?.director}}
+                        p Direccion: {{constructora?.direccion}}
+                        p Fecha de constitución: {{constructora?.fecha_constitucion}}
+                        p R.F.C.: {{constructora?.rfc}}
+                    .edicion(*ngIf="edicion_extra")
+                        form.formulario(class="example-form")
+                            mat-form-field
+                                input(matInput, placeholder="Nombre constructora", [(ngModel)]="constructora.nombreConstructora",  name="nombreConstructora")
+                            mat-form-field
+                                input(matInput, placeholder="Director", [(ngModel)]="constructora.director",  name="director")
+                            mat-form-field
+                                input(matInput, placeholder="Dirección", [(ngModel)]="constructora.direccion",  name="direccion")
+                            mat-form-field
+                                input(matInput, placeholder="Fecha de constitución", [(ngModel)]="constructora.fecha_constitucion",  name="fecha_constitucion")
+                            mat-form-field
+                                input(matInput, placeholder="R.F.C.", [(ngModel)]="constructora.rfc",  name="rfc")
+                        .btn-guardar-contratista
+                            button(mat-raised-button (click)="guardarConstructora()") Guardar

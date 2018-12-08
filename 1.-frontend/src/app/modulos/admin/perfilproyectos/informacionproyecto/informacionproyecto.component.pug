@@ -1,0 +1,8 @@
+
+mat-card.componente([ngStyle]="borde")
+    mat-toolbar
+        mat-toolbar-row(style="justify-content : space-between")
+            .titulo
+                h3 informacionproyecto
+                strong Sección
+    formularioproyectos([proyecto]="proyectos", [options]="options", *ngIf="options")

@@ -1,0 +1,22 @@
+.filtros-container
+    .filtros-content
+        .rendimientos
+            h3 Rendimientos
+            .slider-rendimientos
+                p 0%
+                mat-slider(
+                    thumbLabel,
+                    tickInterval="1",
+                    min="0",
+                    max="100")
+                p 100%
+        .plazo
+            h3 Plazo
+            .slider-plazo
+                p 0 meses
+                mat-slider(
+                    thumbLabel,
+                    tickInterval="1",
+                    min="0",
+                    max="12")
+                p 12 meses
