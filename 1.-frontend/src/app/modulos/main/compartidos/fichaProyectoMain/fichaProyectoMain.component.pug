@@ -1,7 +1,21 @@
 .ficha
     .proyecto
+        .circulo-porcentaje
+            p 60%
+        .ubicacion
+            h4 {{proyecto.nombre}}
+            mat-progress-bar(
+                class="example-margin",
+                [color]="color",
+                [mode]="mode",
+                [value]="value")
         .portada
             img(src="{{proyecto?.portadas[1]?.link}}")
+        .titulo
+            h3 {{proyecto.nombre}}
         .info-basica
-            h4 {{proyecto.nombre}}
-            p {{proyecto.resumen}}
+            p Meta_______${{proyecto.meta}}
+            p Minimo__________${{proyecto.minimo}}
+            p Plazo estimado____{{proyecto.plazo}}meses
+            p Rendimiento estimado____{{proyecto.rendimiento}}%
+            p Retorno anual estimado __{{proyecto.retorno}}%

@@ -1,2 +1,44 @@
-
 @import  '../../../../../defaults.styl'
+.proyecto-individual-container
+    .fondo
+        border 1px solid green
+        height 550px
+        display flex
+        flex-direction row
+        justify-content center
+        align-items center
+        .proyecto-content
+            display flex
+            flex-direction row
+            justify-content center
+            align-items center
+            width 72%
+            .texto
+                height 460px
+                width 32%
+                .encabezado
+                    h4
+                        margin 0
+                .fechas
+                    h1, h4, p
+                        margin 0
+                .linea-separacion
+                    width 18%
+                    height 1px
+                    background-color gray 
+                    opacity 0.6
+                .extras
+                    p, h4
+                        margin 0
+                        font-size 12px
+                    .tipo-inversion, .meta, .minimo, .plazo, .rendimiento-anual, .rendimiento-total, .pago-utilidades
+                        display flex
+                        flex-direction row
+                        justify-content space-between
+                        align-items center
+            .imagen
+                width 618px
+                height 460px
+                img
+                    width 100%
+                    height 100%

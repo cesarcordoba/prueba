@@ -24,7 +24,7 @@ export class SliderproyectosComponent implements OnInit {
     filtro : any;
 
     constructor() {
-        this.slideConfig = { "slidesToShow": 5, "slidesToScroll": 4 , "arrows" : true, 'dots' : true }
+        this.slideConfig = { "slidesToShow": 3, "slidesToScroll": 1 , "arrows" : true, 'dots' : true }
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,

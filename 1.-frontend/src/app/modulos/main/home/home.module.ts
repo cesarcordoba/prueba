@@ -19,7 +19,7 @@ import { SlidercasosexitosComponent } from './sliderCasosExitos/sliderCasosExito
 import { SecciongaleriaComponent } from './seccionGaleria/seccionGaleria.component';
 import { SlidergaleriaComponent } from './seccionGaleria/sliderGaleria/sliderGaleria.component';
 import { SeccionregistroComponent } from './seccionRegistro/seccionRegistro.component';
-
+import { FichaproyectomainModule } from './../compartidos/fichaProyectoMain/fichaProyectoMain.module';
 
 @NgModule({
     imports: [
@@ -29,6 +29,7 @@ import { SeccionregistroComponent } from './seccionRegistro/seccionRegistro.comp
         RangeSliderModule,
         FormsModule,
         ReactiveFormsModule,
+        FichaproyectomainModule
 ],
     declarations: [
         HomeComponent,

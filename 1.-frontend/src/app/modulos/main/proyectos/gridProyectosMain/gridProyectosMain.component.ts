@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProyectoService } from '../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
   selector: 'gridProyectosMain',
   templateUrl: './gridProyectosMain.component.pug',
@@ -18,11 +19,12 @@ export class GridproyectosmainComponent implements OnInit {
     }
     filtro : any;
     columnas = 3
-    height = '500px'
+    height = '450px'
     colspan = 1
     rowspan = 1
 
-    constructor() {
+    constructor(private _router: Router) {
+        
         this.filtro = {
                 pagina : 1,
                 limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  5 :  3,
@@ -34,6 +36,10 @@ export class GridproyectosmainComponent implements OnInit {
     ProyectoService.paginacion(this.filtro)
     .then(response => this.proyectos = response)
 
+  }
+
+  mandarAProyecto(id){
+    this._router.navigate(['/proyecto/' + id]);
   }
 
   ngOnInit() {

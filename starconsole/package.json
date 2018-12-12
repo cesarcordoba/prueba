@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "^0.2.9",
     "aws-sdk": "^2.293.0",
     "babel-plugin-transform-async-generator-functions": "^6.24.1",
     "babel-preset-latest": "^6.24.1",

@@ -10,6 +10,8 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { PerfilproyectosmainComponent } from './perfilProyectosMain/perfilProyectosMain.component';
+
 
 // import { UsuarioComponent } from './usuario/usuario.component';
 
@@ -26,6 +28,10 @@ const main_routers: Routes = [
 			{
 				path: 'proyectos',
 				component: ProyectosComponent
+			},
+			{
+				path: 'proyecto/:id',
+				component: PerfilproyectosmainComponent
 			},
 			{
 				path: 'nosotros',

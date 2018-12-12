@@ -1,10 +1,12 @@
+import { ProyectoService } from './../../../servicios/Proyecto.service';
+import { unicode } from './../../../../../../starconsole/nasa/transbordadores/bower_components/font-awesome/advanced-options/use-with-node-js/free-regular-svg-icons/faClone.d';
+import { Contratista } from './../../../modelos/Contratista.model';
 
 import { Component, OnInit } from '@angular/core';
 import { Title , Meta }     from '@angular/platform-browser';
 import { ActivatedRoute} from '@angular/router'
 import {  BehaviorSubject, Observable  } from 'rxjs'
 
-import { ProyectoService } from '../../../servicios';
 @Component({
   selector: 'perfilProyectosMain',
   templateUrl: './perfilProyectosMain.component.pug',
@@ -21,6 +23,7 @@ export class PerfilproyectosmainComponent implements OnInit {
 
 
     proyecto: any = {}
+    usuario: any
 
     constructor(public route : ActivatedRoute, private titleService: Title, private meta : Meta ) {
 
@@ -29,7 +32,8 @@ export class PerfilproyectosmainComponent implements OnInit {
         ProyectoService.one(Number(res.id))
         .then(response => this.proyecto = response)
         .then(response => {
-
+            ProyectoService.contratistas(this.proyecto.id)
+            .then(response => {this.usuario = response[0]; console.log(response)})
             console.log(response)
 
             // this.pasarProyecto.next(response);

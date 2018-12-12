@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "^0.2.9",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",

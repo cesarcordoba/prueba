@@ -1,7 +1,6 @@
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
-import { ProyectoService } from '../../../../../servicios';
 @Component({
     selector: 'sliderGaleria',
     templateUrl: './sliderGaleria.component.pug',
@@ -16,27 +15,10 @@ export class SlidergaleriaComponent implements OnInit {
 
     borde = false ?  {'border-color':'rgb(76, 175, 80)'} : {'border-color':'rgb(244, 67, 54)'}
 
-
-
-    proyectos = {
-        items : []
-    }
-    filtro : any;
-
+    @Input() proyectos
     constructor() {
-        this.slideConfig = { "slidesToShow": 5, "slidesToScroll": 4 , "arrows" : true, 'dots' : true }
+        this.slideConfig = { "slidesToShow": 3, "slidesToScroll": 1 , "arrows" : false, 'dots' : false }
         this.currentSlide = 0
-        this.filtro = {
-                pagina : 1,
-                limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  20 :  3,
-                order : ['id'],
-                where : {},
-                include : []
-            }
-
-    ProyectoService.paginacion(this.filtro)
-    .then(response => this.proyectos = response)
-    .then(response => console.log(response))
 
   }
 

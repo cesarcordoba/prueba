@@ -1,14 +1,13 @@
 .proyectos-grid-main
+    .filtros-home
+        button(mat-button) Todos
+        button(mat-button) Vigentes
+        button(mat-button) Proximos
+        button(mat-button) Terminados
+    .barra
     mat-grid-list(
         cols="{{columnas}}",
         rowHeight="{{height}}"
         )
-        mat-grid-tile( *ngFor="let proyecto of proyectos?.items", [colspan]="colspan", [rowspan]="rowspan")
-            .proyecto
-                .portada
-                    img(src="{{proyecto?.portadas[0]?.link}}")
-                .info-basica
-                    h4 {{proyecto.nombre}}
-                    p {{proyecto.createdAt | date: 'mediumDate'}}
-                    p {{proyecto.resumen}}
-            
+        mat-grid-tile( *ngFor="let proyecto of proyectos", [colspan]="colspan", [rowspan]="rowspan")
+            fichaProyectoMain([proyecto]="proyecto", (click)="mandarAProyecto(proyecto.id)")

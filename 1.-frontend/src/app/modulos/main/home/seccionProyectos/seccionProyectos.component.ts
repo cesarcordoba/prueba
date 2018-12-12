@@ -15,13 +15,12 @@ export class SeccionproyectosComponent implements OnInit {
 
 
 
-    proyectos: any
+    proyectos:any
 
     constructor() {
 
     ProyectoService.obtener()
     .then(response => this.proyectos = response)
-    .then(response => console.log(response))
 
   }
 

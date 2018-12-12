@@ -1,9 +1,6 @@
-
-mat-card.componente([ngStyle]="borde")
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 seccionGaleria
-                strong Sección
-
-    sliderGaleria
+.seccion-galeria
+    .titulo
+        h1 Galeria
+    .imagen-grande
+        img(src="{{proyectos?.items[1].imagenes[0]?.link}}").mat-elevation-z12
+    sliderGaleria([proyectos]="proyectos")

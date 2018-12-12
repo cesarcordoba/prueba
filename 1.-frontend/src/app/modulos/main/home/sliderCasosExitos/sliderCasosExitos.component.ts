@@ -24,7 +24,7 @@ export class SlidercasosexitosComponent implements OnInit {
     filtro : any;
 
     constructor() {
-        this.slideConfig = { "slidesToShow": 5, "slidesToScroll": 4 , "arrows" : true, 'dots' : true }
+        this.slideConfig = { "slidesToShow": 2, "slidesToScroll": 1, "arrows" : false, 'dots' : false, prevArrow: $('.prev'),nextArrow: $('.next') }
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,

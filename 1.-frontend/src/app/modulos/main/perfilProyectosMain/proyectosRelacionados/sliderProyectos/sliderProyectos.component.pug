@@ -11,10 +11,4 @@ mat-card.componente([ngStyle]="borde")
     .slider(*ngIf="proyectos")
         ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
             .slide(ngxSlickItem,  *ngFor="let proyecto of proyectos.items ; index as i ")
-                mat-card
-                    p {{ i }}
-                    p {{  proyecto.nombre }}
-
-
-        fichaProyectoMain([proyecto]="proyecto")
-// mat-paginator([length]="proyectos.items.length", [pageSize]="10", [pageSizeOptions]="[5, 10, 25, 100]")
+                fichaProyectoMain([proyecto]="proyecto")

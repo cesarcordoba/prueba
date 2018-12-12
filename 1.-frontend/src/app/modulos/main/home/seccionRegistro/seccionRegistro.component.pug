@@ -1,7 +1,10 @@
-
-mat-card.componente([ngStyle]="borde")
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 seccionRegistro
-                strong Sección
+.registro-home-container
+    .registro-home-content
+        .titulo
+            h1 Registrate
+            p Registra tu correo electronico y recibe las ofertas mas nuevas
+        .formulario-home-registro
+            form.formulario([formGroup]="formulario", (ngSubmit)="submit(contacto)", novalidate)
+                input(formControlName="correo",name="correo", placeholder="Correo Electronico", [(ngModel)]="contacto.correo", required).correo
+                button(mat-raised-button, type="submit").btnRegistro REGISTRATE
+                //-button(mat-raised-button, type="submit").mat-elevation-z10 REGISTRATE
