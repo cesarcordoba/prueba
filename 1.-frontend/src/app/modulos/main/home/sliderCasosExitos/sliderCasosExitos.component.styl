@@ -1,49 +1,61 @@
 
 @import  '../../../../../defaults.styl'
-
-.boxshadow
-	box-shadow 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12)
-
 ngx-slick
 	width 100%
-.slider
-	height 400px !important
-	display flex
-	align-items center
-	.carousel
-		height 400px
-		.slick-list
+.slider-casos-exitos
+	height 625px
+	.slider
+		height 400px !important
+		display flex
+		align-items center
+		.carousel
 			height 400px
-			.slick-track
+			.slick-list
 				height 400px
-				.slide
-					&:focus
-						outline 0px
-					.imagen-casos-exito
-						cursor pointer
-						width 590px
-						height 400px
-						img
-							width 100%
-							height 100%
-.titulo
-	display flex
-	flex-direction column
-	justify-content center
-	align-items center
-	.descripcion
-		width 70%
-.flechas
-	margin-top 10px
-	position relative
-	height 40px
-	.prev, .next
-		position absolute
-		border 1px solid gray
-		min-width 38px
-		padding inherit !important
-	.prev
-	
-		right 49px
-	.next
-		right 12px
+				.slick-track
+					height 400px
+					.slide
+						&:focus
+							outline 0px
+						.imagen-casos-exito
+							cursor pointer
+							width 617px
+							height 400px
+							img
+								width 100%
+								height 100%
+			button.slick-prev
+				left inherit !important
+				right 6%
+				top 110%
+				z-index 1
+				width 45px
+				height 45px
+				border 1px solid rgba(220,220,220,0.9)
+				&:before
+					font-family inherit
+					content '←'
+					font-size 45px
+					line-height 0.5
+					color #afafaf
+			button.slick-next
+				right inherit !important
+				left 94%
+				top 110%
+				width 45px
+				height 45px
+				border 1px solid rgba(220,220,220,0.9)
+				&:before
+					font-family inherit
+					content '→'
+					font-size 45px
+					line-height 0.5
+					color #afafaf
+
+	.titulo
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		.descripcion
+			width 70%

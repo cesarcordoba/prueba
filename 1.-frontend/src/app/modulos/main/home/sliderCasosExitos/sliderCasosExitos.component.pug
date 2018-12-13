@@ -8,8 +8,3 @@
             .slide(ngxSlickItem,  *ngFor="let proyecto of proyectos.items ; index as i ")
                 .imagen-casos-exito
                     img(src="{{proyecto?.imagenes[0]?.link}}")
-    .flechas
-        button(mat-button).prev
-            mat-icon arrow_back
-        button(mat-button).next
-            mat-icon arrow_forward
