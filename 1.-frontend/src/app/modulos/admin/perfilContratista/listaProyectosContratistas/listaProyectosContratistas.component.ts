@@ -2,6 +2,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ProyectoService } from '../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
   selector: 'listaProyectosContratistas',
   templateUrl: './listaProyectosContratistas.component.pug',
@@ -18,7 +19,7 @@ export class ListaproyectoscontratistasComponent implements OnInit {
     // }
     filtro : any;
 
-    constructor() {
+    constructor(private _router: Router) {
         this.filtro = {
                 pagina : 1,
                 limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  10 :  3,
@@ -30,6 +31,10 @@ export class ListaproyectoscontratistasComponent implements OnInit {
     // ProyectoService.paginacion(this.filtro)
     // .then(response => this.proyectos = response)
 
+  }
+
+  mandarAProyecto(id){
+    this._router.navigate(['/admin/proyectos/' + id]);
   }
 
   ngOnInit() {

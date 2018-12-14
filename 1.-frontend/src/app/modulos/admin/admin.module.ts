@@ -1,3 +1,4 @@
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 
 import { NgModule } from '@angular/core';
@@ -47,7 +48,8 @@ import { NuevoProyectoComponent } from './proyectos/nuevo-proyecto/nuevo-proyect
         InversionistasModule,
         ContratistasModule,
         PerfilinversionistaModule,
-        PerfilcontratistaModule,
+		PerfilcontratistaModule,
+		UsuariosModule
 		],
 	entryComponents: [
 		ConfirmDelDialogComponent,

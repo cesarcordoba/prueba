@@ -1,4 +1,3 @@
-
 // Angular Imports
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +7,9 @@ import { FormsModule, FormControl, ReactiveFormsModule } from "@angular/forms";
 import { RangeSliderModule } from 'ngx-range-slider'
 
 import { UsuariosComponent } from './usuarios.component';
+import { ListausuariosComponent } from './listaUsuarios/listaUsuarios.component';
+import { BuscadorusuariosComponent } from './buscadorusuarios/buscadorusuarios.component';
+
 
 
 
@@ -23,6 +25,8 @@ import { UsuariosComponent } from './usuarios.component';
 ],
     declarations: [
         UsuariosComponent,
+        ListausuariosComponent,
+        BuscadorusuariosComponent
     ],
     exports: []
 })

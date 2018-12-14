@@ -36,6 +36,10 @@ const admin_routers: Routes = [
 				component: PerfilproyectosComponent
 			},
 			{
+				path: 'usuarios',
+				component: UsuariosComponent
+			},
+			{
 				path: 'inversionistas',
 				component: InversionistasComponent
 			},

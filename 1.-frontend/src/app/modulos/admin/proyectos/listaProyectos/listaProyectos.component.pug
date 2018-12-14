@@ -16,9 +16,9 @@ mat-card.lista-proyectos
             mat-header-cell( *matHeaderCellDef) Botones
             mat-cell( *matCellDef="let element")
                 .botones
-                    a(mat-button, (click)="mandarAProyecto(element.id)")
+                    a(mat-button, (click)="mandarAProyecto(element.id)", matTooltip="Ir al proyecto")
                         mat-icon remove_red_eye
-                    a(mat-button, (click)="borrarProyecto(element)")
+                    a(mat-button, (click)="borrarProyecto(element)", matTooltip="Eliminar")
                         mat-icon delete
         mat-header-row( *matHeaderRowDef="['nombre','vacio1','vacio2','vacio3', 'botones']")
         mat-row(*matRowDef="let row; columns: ['nombre','vacio1','vacio2','vacio3', 'botones'];")

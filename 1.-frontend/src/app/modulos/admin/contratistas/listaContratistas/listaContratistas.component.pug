@@ -1,12 +1,4 @@
-
-mat-card.componente
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 listaContratistas
-                strong Paginación
-
-
+mat-card.lista-contratistas
     mat-table(mat-table, [dataSource]="usuarios.items", class="mat-elevation-z8")
         ng-container(matColumnDef="nombre")
             mat-header-cell( *matHeaderCellDef) Nombre
@@ -24,9 +16,9 @@ mat-card.componente
             mat-header-cell( *matHeaderCellDef) 
             mat-cell( *matCellDef="let element")
                 .botones
-                    a(mat-button, (click)="mandarAContratista(element.id)")
+                    a(mat-button, (click)="mandarAContratista(element.id)", matTooltip="Ver información")
                         mat-icon remove_red_eye
-                    a(mat-button, (click)="borrarContratista(element)")
+                    a(mat-button, (click)="borrarContratista(element)", matTooltip="Eliminar")
                         mat-icon delete
         mat-header-row( *matHeaderRowDef="['nombre','vacio1','vacio2','vacio3', 'botones']")
         mat-row(*matRowDef="let row; columns: ['nombre','vacio1','vacio2','vacio3', 'botones'];")

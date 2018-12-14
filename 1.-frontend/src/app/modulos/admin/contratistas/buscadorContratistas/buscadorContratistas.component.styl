@@ -2,6 +2,16 @@
 @import  '../../../../../defaults.styl'
 
 .autocomplete
+    display flex
+    flex-direction row
+    align-items center
+    justify-content center
+    .contenedor-buscador-contratista
+        width 100%
+        display flex
+        flex-direction row
+        align-items center
+        justify-content center
     mat-form-field
        background-color white
        @extend .boxshadow
@@ -9,7 +19,6 @@
     form, mat-form-field
        height 36px
        width 400px
-       padding 0 50px
 
        .mat-form-field-wrapper
            padding 0px !important

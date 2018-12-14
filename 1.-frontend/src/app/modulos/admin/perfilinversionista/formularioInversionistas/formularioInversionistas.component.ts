@@ -1,13 +1,15 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 import { UsuarioService } from '../../../../servicios';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'formularioInversionistas',
   templateUrl: './formularioInversionistas.component.pug',
-  styleUrls: ['./formularioInversionistas.component.styl']
+  styleUrls: ['./formularioInversionistas.component.styl'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormularioinversionistasComponent implements OnInit {
 
@@ -19,12 +21,18 @@ export class FormularioinversionistasComponent implements OnInit {
 
 
     usuarios: any
+    valid: boolean = false;
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, public snackBar: MatSnackBar) {
 
         
         
   }
+
+    editarInversionista() {
+      this.valid = !this.valid
+
+    }
 
     ngOnInit() {
 
@@ -33,9 +41,9 @@ export class FormularioinversionistasComponent implements OnInit {
 
     aceptar(){
 
-        console.log(this.usuario)
-
         UsuarioService.editar(this.usuario)
+        this.snackBar.open("Guardado Correctamente", "", { duration: 1000 });
+        this.valid = !this.valid
 
     }
 

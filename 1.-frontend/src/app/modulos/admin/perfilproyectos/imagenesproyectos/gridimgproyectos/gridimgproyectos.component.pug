@@ -4,7 +4,7 @@
         h4 Imagen de portada
         .imagen-portada(*ngIf="proyecto.portadas.length > 0")
             img(src="{{proyecto?.portadas[0].link}}")
-            button(mat-icon-button, color="warn", (click)="mandarABorrarPortada(proyecto.portadas[0])")
+            button(mat-icon-button, color="warn", (click)="mandarABorrarPortada(proyecto.portadas[0])", matTooltip="Eliminar")
                 mat-icon delete
     mat-divider
     .imagenes
@@ -17,5 +17,5 @@
             mat-grid-tile(*ngFor="let imagen of proyecto.imagenes", [colspan]="colspan", [rowspan]="rowspan")
                 .imagen
                     img([src]="imagen.link")
-                button(mat-icon-button, color="warn", (click)="borrar(imagen)")
+                button(mat-icon-button, color="warn", (click)="borrar(imagen)", matTooltip="Eliminar")
                     mat-icon delete
