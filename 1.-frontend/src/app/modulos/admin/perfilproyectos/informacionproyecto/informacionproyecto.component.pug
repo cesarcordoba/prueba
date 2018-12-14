@@ -1,8 +1,4 @@
-
-mat-card.componente([ngStyle]="borde")
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 informacionproyecto
-                strong Sección
+mat-card.formulario-proyecto
+    .titulo-formulario-proyecto
+        h1 Formulario del proyecto: {{proyectos.nombre}}
     formularioproyectos([proyecto]="proyectos", [options]="options", *ngIf="options")

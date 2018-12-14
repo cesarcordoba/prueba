@@ -1,10 +1,11 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'proyectosRelacionados',
   templateUrl: './proyectosRelacionados.component.pug',
-  styleUrls: ['./proyectosRelacionados.component.styl']
+  styleUrls: ['./proyectosRelacionados.component.styl'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProyectosrelacionadosComponent implements OnInit {
 

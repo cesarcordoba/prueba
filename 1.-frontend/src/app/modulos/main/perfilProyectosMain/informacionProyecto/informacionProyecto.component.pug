@@ -1,64 +1,62 @@
-.proyecto-individual-container
-    .fondo
-        .proyecto-content
-            .texto
-                .encabezado
-                    h4 {{proyecto.nombre}}
-                    mat-progress-bar(
-                    class="example-margin",
-                    [color]="color",
-                    [mode]="mode",
-                    [value]="value")
-                .fechas
-                    h1 ${{proyecto.acumulado}}.00 MXN
-                    .linea
-                    h4 Conseguido de ${{proyecto.meta}}.00 MXN
-                    .linea
-                    p Dias: 10 Horas: 6 Minutos: 30
-                .extras
-                    .tipo-inversion
-                        p Tipo de participación______________________
+.proyecto-container.mat-elevation-z12
+    .proyecto-content
+        .texto
+            .circulo-porcentaje
+                p 60%
+            .encabezado
+                h4 {{proyecto.nombre}}
+            mat-progress-bar(class="example-margin",[color]="color",[mode]="mode",[value]="value")
+            .fechas
+                h1 ${{proyecto.acumulado}}.00
+                .linea-separacion
+                h4 Conseguido de ${{proyecto.meta}}.00 meta
+                .linea-separacion
+                p Dias: 10 Horas: 6 Minutos: 30
+            .extras
+                .tipo-inversion
+                    .atributo
+                        p Tipo de participación:
+                    .linea-atributo
+                    .valor
+                        //- h4 ${{proyecto?.participacion}}
                         h4 Equity
-                    .meta
-                        p Meta requerida________________
-                        h4 ${{proyecto.meta}}.00 mxn
-                    .minimo
-                        p Minimo de inversion________________
-                        h4 ${{proyecto.minimo}}.00 mxn
-                    .plazo
-                        p Plazo estimado_____________________
-                        h4 {{proyecto.plazo}} meses
-                    .rendimiento-anual
-                        p Rendimiento anual estimado_________________
-                        h4 {{proyecto.rendimiento}}%
-                    .rendimiento-total
-                        p Rendimiento total estimado__________________
-                        h4 {{proyecto.retorno}}%
-                    .pago-utilidades
-                        p Pago de utilidades______________
+                .meta
+                    .atributo
+                        p Meta requerida:
+                    .linea-atributo
+                    .valor
+                        h4 ${{proyecto?.meta}}
+                .minimo
+                    .atributo
+                        p Minimo de inversion:
+                    .linea-atributo
+                    .valor
+                        h4 ${{proyecto?.minimo}}
+                .plazo
+                    .atributo
+                        p Plazo estimado:
+                    .linea-atributo
+                    .valor
+                        h4 {{proyecto?.plazo}}meses
+                .rendimiento
+                    .atributo
+                        p Rendimiento estimado:
+                    .linea-atributo
+                    .valor
+                        h4 {{proyecto?.rendimiento}}%
+                .retorno
+                    .atributo
+                        p Retorno anual estimado:
+                    .linea-atributo
+                    .valor
+                        h4 {{proyecto?.retorno}}%
+                .pago-utilidades
+                    .atributo
+                        p Pago de utilidades:
+                    .linea-atributo
+                    .valor
+                        //- h4 ${{proyecto?.pago_utilidades}}
                         h4 Al final del proyecto
-            .imagen
-                img(src="{{proyecto?.imagenes[1]?.link}}")
-    .mapa-container
-        .especifricaciones
-                    .contenido
-                        p([innerHtml] = "proyecto.contenido")
-                    .mapa-content
-                        .mapa
-                            iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29877.634983562795!2d-100.3955254120336!3d20.60012700348012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x44b577c54d63c101!2sTryadd%2C+S.A.+de+C.V.!5e0!3m2!1ses!2smx!4v1543436191701" width="600" height="450" frameborder="0" style="border:0" allowfullscreen)
-                        .usuario
-                            .contactos-usuario
-                                p {{usuario.Contratista.telefono}}
-                                p {{usuario.correo}}
-                                p {{usuario.Contratista.paginaWeb}}
-                            .info
-                                p {{usuario.nombre}}
-                                p {{usuario.apellido}}
-                                p {{usuario.Contratista.direccion}}
 
-//- .contenedor-padre
-//-     .imagen
-//-         img(src="assets/images/sample.jpg")
-//-     .texto
-//-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi tenetur delectus. Magni quo cumque, assumenda dignissimos consectetur ipsa possimus quia voluptate facere laborum unde nam veritatis, beatae temporibus vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi tenetur delectus. Magni quo cumque, assumenda dignissimos consectetur ipsa possimus quia voluptate facere laborum unde nam veritatis, beatae temporibus vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi tenetur delectus. Magni quo cumque, assumenda dignissimos consectetur ipsa possimus quia voluptate facere laborum unde nam veritatis, beatae temporibus vitae.
-                                
+        .imagen
+            img(src="{{proyecto?.imagenes[1]?.link}}")

@@ -1,10 +1,11 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'informacionProyecto',
   templateUrl: './informacionProyecto.component.pug',
-  styleUrls: ['./informacionProyecto.component.styl']
+  styleUrls: ['./informacionProyecto.component.styl'],
+  encapsulation: ViewEncapsulation.None
 })
 export class InformacionproyectoComponent implements OnInit {
 
@@ -16,7 +17,7 @@ export class InformacionproyectoComponent implements OnInit {
 
     color = 'warn';
     mode = 'determinate';
-    value = 50;
+    value = 60;
 
     constructor() {
 

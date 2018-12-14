@@ -1,7 +1,6 @@
 
-    import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-
-
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProyectoService } from '../../../../servicios';
 @Component({
   selector: 'fichaProyectoMain',
@@ -20,8 +19,12 @@ export class FichaproyectomainComponent implements OnInit {
     value = 60;
 
 
-    constructor() {
+    constructor(private _router: Router) {
 
+  }
+
+  mandarAProyecto(id){
+    this._router.navigate(['/proyecto/' + id]);
   }
 
   ngOnInit() {

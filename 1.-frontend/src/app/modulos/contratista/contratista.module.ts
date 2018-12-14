@@ -23,6 +23,7 @@ import { ProyectosModule } from './proyectos/proyectos.module';
 import { PerfilproyectosModule } from './perfilproyectos/perfilproyectos.module';
 
 import { InfocontratistaModule } from './infoContratista/infoContratista.module';
+import { NuevoProyectoComponent } from './proyectos/nuevo-proyecto/nuevo-proyecto.component';
 
 @NgModule({
 	imports: [
@@ -40,11 +41,13 @@ import { InfocontratistaModule } from './infoContratista/infoContratista.module'
 		],
 	entryComponents: [
 		ConfirmDelDialogComponent,
+		NuevoProyectoComponent
 
 	],
 	declarations: [
 		ContratistaComponent,
 		ConfirmDelDialogComponent,
+		NuevoProyectoComponent
 
 	]
 })

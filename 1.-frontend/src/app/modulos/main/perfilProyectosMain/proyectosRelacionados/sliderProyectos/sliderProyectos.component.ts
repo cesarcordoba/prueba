@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { ProyectoService } from '../../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
     selector: 'sliderProyectos',
     templateUrl: './sliderProyectos.component.pug',
@@ -23,8 +24,8 @@ export class SliderproyectosComponent implements OnInit {
     }
     filtro : any;
 
-    constructor() {
-        this.slideConfig = { "slidesToShow": 3, "slidesToScroll": 1 , "arrows" : true, 'dots' : true }
+    constructor(private _router: Router) {
+        this.slideConfig = { "slidesToShow": 3, "slidesToScroll": 1 , "arrows" : true, 'dots' : false }
         this.currentSlide = 0
         this.filtro = {
                 pagina : 1,
@@ -38,6 +39,10 @@ export class SliderproyectosComponent implements OnInit {
     .then(response => this.proyectos = response)
     .then(response => console.log(response))
 
+  }
+
+  mandarAProyecto(id){
+    this._router.navigate(['/proyecto/' + id]);
   }
 
   ngOnInit() {

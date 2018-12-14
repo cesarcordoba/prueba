@@ -62,6 +62,34 @@ export class Proyecto extends Model<Proyecto> {
     retorno : number;
 
 
+    @Column(DataType.STRING)
+    participacion : undefined;
+
+
+    @Column(DataType.STRING)
+    pago_utilidades : undefined;
+
+
+    @Column(DataType.STRING)
+    ubicacion : undefined;
+
+
+    @Column(DataType.STRING)
+    url_ubicacion : undefined;
+
+
+    @Column(DataType.STRING)
+    fecha_inicio : undefined;
+
+
+    @Column(DataType.STRING)
+    fecha_termino : undefined;
+    
+
+    @Column(DataType.STRING)
+    status : undefined;
+
+
 
     @HasMany(()=> Portada, 'IdProyecto')
     Portadas : Portada[];

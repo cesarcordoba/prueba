@@ -2,6 +2,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 import { ProyectoService } from '../../../../../servicios';
+import { Router } from '@angular/router';
 @Component({
   selector: 'gridProyectos',
   templateUrl: './gridProyectos.component.pug',
@@ -15,27 +16,18 @@ export class GridproyectosComponent implements OnInit {
 
     @Input() proyectos;
 
-    // proyectos = {
-    //     items : []
-    // }
-    // filtro : any;
     columnas = 4
     height = '450px'
     colspan = 1
     rowspan = 1
 
-    constructor() {
-    //     this.filtro = {
-    //             pagina : 1,
-    //             limite :  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  5 :  3,
-    //             order : ['id'],
-    //             where : {},
-    //             include : []
-    //         }
+    constructor(private _router: Router) {
 
-    // ProyectoService.paginacion(this.filtro)
-    // .then(response => this.proyectos = response)
 
+  }
+
+  mandarAProyecto(id){
+    this._router.navigate(['/proyecto/' + id]);
   }
 
   ngOnInit() {

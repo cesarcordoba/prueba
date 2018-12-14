@@ -1,13 +1,5 @@
-
-mat-card.componente
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 listaProyectos
-                strong Paginación
-
-
-    mat-table(mat-table, [dataSource]="proyectos.items", class="mat-elevation-z8")
+mat-card.lista-proyectos
+    mat-table(mat-table, [dataSource]="proyectos.items", class="mat-elevation-z6")
         ng-container(matColumnDef="nombre")
             mat-header-cell( *matHeaderCellDef) Nombre
             mat-cell( *matCellDef="let element") {{element.nombre}}
@@ -21,7 +13,7 @@ mat-card.componente
             mat-header-cell( *matHeaderCellDef) 
             mat-cell( *matCellDef="let element") 
         ng-container(matColumnDef="botones")
-            mat-header-cell( *matHeaderCellDef) 
+            mat-header-cell( *matHeaderCellDef) Botones
             mat-cell( *matCellDef="let element")
                 .botones
                     a(mat-button, (click)="mandarAProyecto(element.id)")

@@ -1,4 +1,4 @@
-mat-card.componente
+.formulario-content
     form.formulario([formGroup]="formulario", (ngSubmit)="submit(contacto)", novalidate)
         input(formControlName="nombre",name="nombre", placeholder="Nombre completo", [(ngModel)]="contacto.nombre", required)
         input(formControlName="correo",name="correo", placeholder="Correo Electronico", [(ngModel)]="contacto.correo", required)

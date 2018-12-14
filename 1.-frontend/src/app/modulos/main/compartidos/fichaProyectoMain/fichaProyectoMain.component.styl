@@ -1,21 +1,29 @@
 @import  '../../../../../defaults.styl'
 .ficha
     border 2px solid rgba(220,220,220,0.4)
+    width 290px
     .proyecto
         position relative
         .circulo-porcentaje
             position absolute
-            border 1.5px solid #00838e
+            border 3px solid #00838e
             border-radius 40px
-            top 22px
-            right 24px
-            width 50px
-            height 50px
+            top 20px
+            right 20px
+            width 45px
+            height 45px
             display flex
             justify-content center
             align-items center
-            background-color white
+            background-color #fff
             z-index 10
+            p
+                font-size 15px
+                margin 0
+                font-weight bolder
+                background -webkit-linear-gradient(#009A8C, #003B94)
+                -webkit-background-clip text
+                -webkit-text-fill-color transparent
         .ubicacion
             height 50px
             display flex
@@ -51,7 +59,7 @@
         .texto-container
             padding 20px
             .texto-content
-                width 217px
+                width 248px
                 position relative
                 .meta, .minimo, .plazo, .rendimiento, .retorno
                     height 17px

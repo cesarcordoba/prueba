@@ -2,7 +2,7 @@ import { ProyectoService } from './../../../servicios/Proyecto.service';
 import { unicode } from './../../../../../../starconsole/nasa/transbordadores/bower_components/font-awesome/advanced-options/use-with-node-js/free-regular-svg-icons/faClone.d';
 import { Contratista } from './../../../modelos/Contratista.model';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title , Meta }     from '@angular/platform-browser';
 import { ActivatedRoute} from '@angular/router'
 import {  BehaviorSubject, Observable  } from 'rxjs'
@@ -12,7 +12,8 @@ import {  BehaviorSubject, Observable  } from 'rxjs'
   templateUrl: './perfilProyectosMain.component.pug',
   styleUrls: [
       './perfilProyectosMain.component.styl'
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class PerfilproyectosmainComponent implements OnInit {
 

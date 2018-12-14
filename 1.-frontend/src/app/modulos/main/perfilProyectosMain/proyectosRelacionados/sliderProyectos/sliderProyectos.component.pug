@@ -1,14 +1,6 @@
-
-mat-card.componente([ngStyle]="borde")
-    mat-toolbar
-        mat-toolbar-row(style="justify-content : space-between")
-            .titulo
-                h3 sliderProyectos
-                strong slider
-            .detalles
-                p Página actual : {{ currentSlide }}
-                span Numero de elementos : {{ proyectos.items.length }}
-    .slider(*ngIf="proyectos")
-        ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
-            .slide(ngxSlickItem,  *ngFor="let proyecto of proyectos.items ; index as i ")
-                fichaProyectoMain([proyecto]="proyecto")
+.slider-individual-container
+    .slider-individual-container
+        .slider(*ngIf="proyectos")
+            ngx-slick.carousel(#slickModal="slick-modal",   [config]="slideConfig",  (afterChange)="afterChange($event)"  )
+                .slide(ngxSlickItem,  *ngFor="let proyecto of proyectos.items ; index as i ")
+                    fichaProyectoMain([proyecto]="proyecto", (click)="mandarAProyecto(proyecto.id)")
