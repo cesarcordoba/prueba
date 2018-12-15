@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 import { Contratista } from "./modelo";
 import { Response, Request, NextFunction } from "express-serve-static-core";
+
 export class ContratistaController {
 
     //* null

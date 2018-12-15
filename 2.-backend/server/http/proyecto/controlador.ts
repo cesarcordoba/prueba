@@ -148,6 +148,4 @@ export class ProyectoController {
         res.status(200).jsonp(s3Hash);
         console.log(s3Hash);
     }
-
-                
 }

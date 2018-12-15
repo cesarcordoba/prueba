@@ -34,7 +34,7 @@ export class PortadaRouter {
         this._rutas.route('/data/portada/Proyecto/:id')
             .get(this.controlador.proyecto)
 
-               
+        
         }
 
     rutas() {

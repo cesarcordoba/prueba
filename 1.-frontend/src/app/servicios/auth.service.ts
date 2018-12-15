@@ -72,7 +72,7 @@ export class AuthService {
                     this.crearUsuario(response.data.user, token)
                     return true;
                 }
-                this.destuirUsuario();
+                this.destruirUsuario();
                 return false
             })
     }
@@ -80,18 +80,17 @@ export class AuthService {
     private crearUsuario(usuarioResponse, tokenValido) {
         if (isPlatformBrowser(this.platformId)) {
             localStorage.setItem("token", tokenValido);
-         }        
-        this.usuarioSubject.next(
-            new Usuario(usuarioResponse)
-        );
+        }
+        this.usuarioSubject.next(new Usuario(usuarioResponse))
+
     }
 
-    private destuirUsuario() {
+    private destruirUsuario() {
         this.usuarioSubject.next(null);
         if (isPlatformBrowser(this.platformId)) {
             localStorage.removeItem("token")
          }
-        
+
     }
 
 

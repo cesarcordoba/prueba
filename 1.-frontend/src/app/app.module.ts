@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 // import { MainModule } from './modulos/main/main.module';
 import { AuthService } from './servicios/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SocialGuard } from './guards/social.guard';
 // import { InversionistaModule } from './modulos/inversionista/inversionista.module';
 // import { ContratistaModule } from './modulos/contratista/contratista.module';
 
@@ -34,7 +35,8 @@ import { AuthGuard } from './guards/auth.guard';
 	],
 	providers: [
 		AuthService,
-		AuthGuard
+		AuthGuard,
+		SocialGuard
 	],
 })
 export class AppModule { }

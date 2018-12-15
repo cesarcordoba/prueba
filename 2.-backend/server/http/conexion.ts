@@ -8,6 +8,7 @@ import { Usuario } from './usuario/modelo';
 import { Contratista } from './contratista/modelo';
 import { Arquitecto } from './arquitecto/modelo';
 import { Constructora } from './constructora/modelo';
+import { Llave } from './llave/modelo';
 
 import { Sequelize } from 'sequelize-typescript';
 import { config } from '../conf/config';

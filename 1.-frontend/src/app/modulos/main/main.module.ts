@@ -28,6 +28,10 @@ import { ProyectosModule } from './proyectos/proyectos.module';
 
 import { PerfilproyectosmainModule } from './perfilProyectosMain/perfilProyectosMain.module';
 
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { SocialComponent } from '../../guards/social/social.component';
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -48,6 +52,12 @@ import { PerfilproyectosmainModule } from './perfilProyectosMain/perfilProyectos
 	],
 	declarations: [
 		MainComponent,
-	]
+		LoginComponent,
+		RegistroComponent,
+		SocialComponent
+	],
+	entryComponents : [
+        LoginComponent
+    ],
 })
 export class MainModule { }

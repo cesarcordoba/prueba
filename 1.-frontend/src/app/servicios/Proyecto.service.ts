@@ -38,7 +38,7 @@ export class ProyectoService {
     public static buscar = (nombre) => axios.default.get(url + '/data/proyecto/buscar', nombre)
 
     public static froala = () => axios.default.get(url + '/data/proyecto/froala')
-
+    
     public static contratistas = id => axios.default.get( url + '/data/proyecto/Contratistas/' + id ).then(response => response.data.map(n => new Usuario( n )))
     public static ligarcontratistas = (proyecto , usuario) => axios.default.put( url + '/data/proyecto-usuario/' + proyecto + '/' + usuario )
     public static desligarcontratistas = (proyecto , usuario) => axios.default.delete( url + '/data/proyecto-usuario/' + proyecto + '/' + usuario )

@@ -21,7 +21,6 @@ export class PortadaService {
     public static xProyecto = id => axios.default.get( url + '/data/portada/xProyecto/' + id ).then(response => response.data.map(n => new Portada( n )))
     public static proyecto = id => axios.default.get( url + '/data/portada/proyecto/' + id ).then(response =>  new Proyecto( response.data ))
 
-    
 
     //- Finalizo
 }

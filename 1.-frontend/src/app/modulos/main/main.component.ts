@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs';
 
 import { Usuario } from '../../modelos/Usuario.model';
 import { AuthService } from '../../servicios/auth.service';
+import { LoginComponent } from  './login/login.component'
+import { MatDialog } from '@angular/material';
 
 @Component({
 	selector: 'app-main',
@@ -32,7 +34,7 @@ export class MainComponent implements OnInit, OnDestroy {
 	usuario: Usuario;
 	subscription: Subscription;
 
-	constructor(private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private titleService: Title, private us: AuthService) {
+	constructor(private router: Router, private dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private titleService: Title, private us: AuthService) {
 		this.mobileQuery = media.matchMedia('(max-width: 768px)');
 		this._mobileQueryListener = () => changeDetectorRef.detectChanges();
 		this.mobileQuery.addListener(this._mobileQueryListener);
@@ -46,6 +48,10 @@ export class MainComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		this.us.obtenerUsuario()
+		.subscribe(user => {
+			this.usuario = user
+		})
 	}
 
 	ngOnDestroy() {
@@ -59,6 +65,18 @@ export class MainComponent implements OnInit, OnDestroy {
 
 	ir(x){
         this.router.navigate([ x ])
-    }
+	}
+	
+	login(){
+		this.dialog.open(LoginComponent, {
+			position : { top : '100px' },
+			width :  '600px',
+			height : '700px',
+			maxWidth : '600px',
+			data :  {}
+		}).afterClosed().subscribe(response => {
+
+		});
+	}
 
 }

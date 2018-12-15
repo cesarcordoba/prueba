@@ -1,3 +1,4 @@
+import { AutentificacionRouter } from './http/rutas/Autentificacion';
 
 
 import * as express from 'express';
@@ -9,7 +10,6 @@ import * as passport from 'passport';
 import * as morgan from 'morgan';
 
 // import { UsuarioRouter } from './http/rutas/Usuario';
-// import { AutentificacionRouter } from './http/rutas/Autentificacion';
 // import { ProspectoRouter } from './http/rutas/Prospecto';
 
 
@@ -29,6 +29,9 @@ import { UsuarioRouter } from './http/usuario/ruta';
 import { ContratistaRouter } from './http/contratista/ruta';
 import { ArquitectoRouter } from './http/arquitecto/ruta';
 import { ConstructoraRouter } from './http/constructora/ruta';
+import { LlaveRouter } from './http/llave/ruta';
+import { AvatarRouter } from './http/avatar/ruta';
+import { LogRouter } from './http/log/ruta';
 import { Proyecto } from './http/proyecto/modelo';
 import { Contacto } from './http/contacto/modelo';
 import { Multimedia } from './http/multimedia/modelo';
@@ -38,6 +41,10 @@ import { Usuario } from './http/usuario/modelo';
 import { Contratista } from './http/contratista/modelo';
 import { Arquitecto } from './http/arquitecto/modelo';
 import { Constructora } from './http/constructora/modelo';
+import { Llave } from './http/llave/modelo';
+import { Avatar } from './http/avatar/modelo';
+import { Log } from './http/log/modelo';
+
 
 export class Server {
 
@@ -51,7 +58,6 @@ export class Server {
         this.app.set('port', (process.env.PORT || this.port));
         this.config();
         this.apiRutas();
-
     }
 
     static init(port: number, modo, urlAllowOrigin?: string[]): Server {
@@ -76,6 +82,9 @@ export class Server {
             Contratista,
             Arquitecto,
             Constructora,
+            Llave,
+            Avatar,
+            Log,
         ])
         conexion.sync();
 
@@ -116,14 +125,17 @@ export class Server {
             new ContratistaRouter().rutas(),
             new ArquitectoRouter().rutas(),
             new ConstructoraRouter().rutas(),
+            new LlaveRouter().rutas(),
+            new AvatarRouter().rutas(),
+            new LogRouter().rutas(),
             // new UsuarioRouter().rutas(),
-            // new AutentificacionRouter().rutas(),
+             new AutentificacionRouter().rutas(),
             // new ProspectoRouter().rutas(),
             // new ImagenRouter().rutas(),
             // new VideoRouter().rutas()
         ])
 
-        // this.app.use(subdomain('api', rutas.route))
+        this.app.use(subdomain('api', rutas.route))
         this.app.use( rutas.route)
     }
 }

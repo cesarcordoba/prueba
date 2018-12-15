@@ -2,8 +2,8 @@
         export { ProspectoService } from './prospecto.service';
 
         export { AWSService } from './aws.service';
-        export * from './auth.service';
-
+        export { AuthService } from './auth.service';
+        
         // export * from './imagen.service';
     
 
@@ -32,4 +32,7 @@
     
 
         export { ConstructoraService } from './Constructora.service';
+    
+
+        export { LlaveService } from './Llave.service';
     

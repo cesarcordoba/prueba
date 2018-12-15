@@ -8,8 +8,21 @@ main
                 div(*ngFor="let link of navLinks" )
                     button(mat-button, [routerLink]="link.path" ) {{link.label}}
             .menu
-                button(mat-button) Iniciar sesion
-                    mat-icon exit_to_app
+                div(*ngIf="usuario === null")
+                    button(mat-button, (click)="login()") 
+                        mat-icon account_circle
+                div(*ngIf="usuario !== null")
+                    button.avatarbutton(mat-button, [mat-menu-trigger-for]="menuUser")
+                        .avatar-content
+                            .avatar(*ngIf="usuario?.avatares?.length > 0", [ngStyle]="{ 'background-image' :' url(' +  usuario?.avatares[0]?.link +  ')' }")
+                            span  Hola {{usuario?.nombre}}
+                mat-menu(#menuUser="matMenu")
+                    a(mat-menu-item, [routerLink]="['usuario']")
+                        mat-icon account_box
+                        span {{ usuario?.nombre }}
+                    a(mat-menu-item, (click)="salir()")
+                        mat-icon exit_to_app
+                        span Cerrar Sesión  
         
     .contenido
         router-outlet

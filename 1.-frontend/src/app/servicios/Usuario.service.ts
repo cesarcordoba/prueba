@@ -1,7 +1,9 @@
-
 import { Injectable } from '@angular/core'
 import { APILOCAL } from '../../environments/environment'
 import { Usuario } from '../modelos/Usuario.model'
+import { Llave } from './../modelos/Llave.model';
+import { Avatar } from '../modelos/Avatar.model';
+import { Log } from '../modelos/Log.model';
 import * as axios from 'axios'
 
 import { Inversionista } from '../modelos/Inversionista.model';
@@ -23,9 +25,19 @@ export class UsuarioService {
     .then(response => Object.assign(response.data, {items : response.data.items.map(n => new Usuario( n ))}))
     public static paginacionContratista = peticion => axios.default.post( url + '/data/usuario/paginacionContratista', peticion )
     .then(response => Object.assign(response.data, {items : response.data.items.map(n => new Usuario( n ))}))
+
+    public static llaves = id => axios.default.get( url + '/data/usuario/llaves/' + id ).then(response => response.data.map(n => new Llave( n )))
+    public static ligarllave = (usuario , llave) => axios.default.put( url + '/data/usuario-llave/' + usuario + '/' + llave )
+    public static desligarllave = (usuario , llave) => axios.default.delete( url + '/data/usuario-llave/' + usuario + '/' + llave )
+
+    public static avatares = id => axios.default.get( url + '/data/usuario/avatares/' + id ).then(response => response.data.map(n => new Avatar( n )))
+    public static ligaravatar = (usuario , avatar) => axios.default.put( url + '/data/usuario-avatar/' + usuario + '/' + avatar )
+    public static desligaravatar = (usuario , avatar) => axios.default.delete( url + '/data/usuario-avatar/' + usuario + '/' + avatar )
+
+    public static logs = id => axios.default.get( url + '/data/usuario/logs/' + id ).then(response => response.data.map(n => new Log( n )))
+    public static ligarlog = (usuario , log) => axios.default.put( url + '/data/usuario-log/' + usuario + '/' + log )
+    public static desligarlog = (usuario , log) => axios.default.delete( url + '/data/usuario-log/' + usuario + '/' + log )
     
-
-
     public static inversionistas = id => axios.default.get( url + '/data/usuario/Inversionistas/' + id ).then(response => response.data.map(n => new Proyecto( n )))
     public static ligarinversionistas = (usuario , proyecto) => axios.default.put( url + '/data/usuario-proyecto/' + usuario + '/' + proyecto )
     public static desligarinversionistas = (usuario , proyecto) => axios.default.delete( url + '/data/usuario-proyecto/' + usuario + '/' + proyecto )

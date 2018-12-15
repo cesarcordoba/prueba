@@ -11,7 +11,10 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { PerfilproyectosmainComponent } from './perfilProyectosMain/perfilProyectosMain.component';
-
+import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { SocialComponent } from '../../guards/social/social.component';
+import { SocialGuard } from '../../guards/social.guard';
 
 // import { UsuarioComponent } from './usuario/usuario.component';
 
@@ -44,9 +47,22 @@ const main_routers: Routes = [
 			{
 				path: 'contacto',
 				component: ContactoComponent
-			}
+			},
+			{
+                path: 'registro',
+                component: RegistroComponent
+            }
     ]
-  }
+	},
+	{
+		path: 'login',
+		component: LoginComponent
+	},	
+	{
+		path : 'social/:token',
+		// canActivate: [ SocialGuard ],
+		component : SocialComponent,
+	},
 ];
 
 @NgModule({

@@ -33,7 +33,7 @@ export class MultimediaController {
         Multimedia.findAll({ where: { tipo: req.params.id}})
         .then(response => res.status(200).jsonp(response))
         .catch(err => errorHandler(err, 'fotoPerfilMultimedia'))
-
+        
     //* null
     eliminar = (req: Request, res: Response, next: NextFunction) =>
         Multimedia.findById(req.params.id)
@@ -70,4 +70,5 @@ export class MultimediaController {
             .catch(err => errorHandler(err, 'Multimediaproyectos'))
 
 
+    
 }

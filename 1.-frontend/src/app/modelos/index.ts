@@ -30,3 +30,6 @@ export { Prospecto } from './prospecto.model';
 
         export { Constructora } from './Constructora.model';
     
+
+        export { Llave } from './Llave.model';
+    

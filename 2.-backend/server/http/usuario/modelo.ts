@@ -1,8 +1,11 @@
+import { Llave } from '../llave/modelo';
 
 
 import { Table, Column, Model, HasMany, HasOne, BelongsTo, BelongsToMany, DataType,  ForeignKey} from 'sequelize-typescript';
 import { Inversionista } from '../inversionista/modelo';
 import { Proyecto } from '../proyecto/modelo';
+import { Avatar } from '../avatar/modelo';
+import { Log } from '../log/modelo';
 import { Contratista } from '../contratista/modelo';
 
 @Table({
@@ -40,8 +43,22 @@ export class Usuario extends Model<Usuario> {
     tipo : undefined;
 
 
+
+    @Column(DataType.INTEGER)
+    status : number;
+
+
         
         
+    @HasMany(()=> Avatar, 'IdUsuario')
+    Avatares : Avatar[];
+
+    @HasMany(()=> Log, 'IdUsuario')
+    Logs : Log[];
+
+    @HasOne(()=> Llave, 'IdUsuario')
+    Llave : Llave;
+    
     @BelongsToMany(()=> Proyecto, () => Inversionista,'IdUsuario', 'IdProyecto')
     Inversionistas : Proyecto[];
 

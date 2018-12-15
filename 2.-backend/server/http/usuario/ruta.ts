@@ -26,7 +26,7 @@ export class UsuarioRouter {
         //*
         this._rutas.route('/data/usuario/paginacion')
             .post(this.controlador.paginacion);
-
+        
         this._rutas.route('/data/usuario/paginacionInversionista')
             .post(this.controlador.paginacionInversionista);
             
@@ -34,6 +34,34 @@ export class UsuarioRouter {
             .post(this.controlador.paginacionContratista);
 
 
+
+        //*
+        this._rutas.route('/data/usuario/llaves/:id')
+            .get(this.controlador.llaves)
+
+        //*
+        this._rutas.route('/data/usuario-llave/:usuario/:llave')
+            .put(this.controlador.ligarllaves)
+            .delete(this.controlador.desligarllaves)
+
+        //*
+        this._rutas.route('/data/usuario/avatares/:id')
+            .get(this.controlador.avatares)
+
+        //*
+        this._rutas.route('/data/usuario-avatar/:usuario/:avatar')
+            .put(this.controlador.ligaravatares)
+            .delete(this.controlador.desligaravatares)
+
+        //*
+        this._rutas.route('/data/usuario/logs/:id')
+            .get(this.controlador.logs)
+
+        //*
+        this._rutas.route('/data/usuario-log/:usuario/:log')
+            .put(this.controlador.ligarlogs)
+            .delete(this.controlador.desligarlogs)
+        
         //*
         this._rutas.route('/data/usuario/Inversionistas/:id')
             .get(this.controlador.inversionistas)

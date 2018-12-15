@@ -15,7 +15,7 @@ export class ProyectoRouter {
 
         this._rutas.route('/data/proyecto/froala')
             .get(this.controlador.froala)
-            
+
         //*
         this._rutas.route('/data/proyecto')
             .get(this.controlador.buscar)
@@ -72,7 +72,7 @@ export class ProyectoRouter {
         this._rutas.route('/data/proyecto-usuario/:proyecto/:usuario')
             .put(this.controlador.ligarcontratistas)
             .delete(this.controlador.desligarcontratistas)
-                
+      
         }
 
     rutas() {

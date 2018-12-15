@@ -1,0 +1,15 @@
+.registro-container
+	.registro-content
+		mat-horizontal-stepper(#stepper)
+			mat-step([stepControl]="segundoFormGroup")
+				ng-template(matStepLabel) Paso 1
+				.boton
+					button(mat-button, mat-stroked-button, matStepperNext) Saltar este paso
+			mat-step([stepControl]="terceroFormGroup")
+				ng-template(matStepLabel) Paso 2
+				.boton
+					button(mat-button, mat-stroked-button, matStepperNext) Saltar este paso
+			mat-step([stepControl]="primeroFormGroup")
+				ng-template(matStepLabel) Paso 3
+				.terminos-container
+					.terminos

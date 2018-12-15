@@ -46,7 +46,7 @@ export class UsuarioController {
                         paginas : Math.round(response.count / req.body.limite)
                     })))
             .catch(err => errorHandler(err, 'paginacionUsuario'))
-    
+
     paginacionInversionista = (req: Request, res: Response, next: NextFunction) =>
         Usuario.findAndCountAll({
             where:{tipo: 'inversionista'}
@@ -57,7 +57,7 @@ export class UsuarioController {
                         paginas : Math.round(response.count / req.body.limite)
                     })))
             .catch(err => errorHandler(err, 'paginacionInversionista'))
-
+        
     paginacionContratista = (req: Request, res: Response, next: NextFunction) =>
         Usuario.findAndCountAll({
             where:{tipo: 'contratista'}
@@ -68,6 +68,71 @@ export class UsuarioController {
                         paginas : Math.round(response.count / req.body.limite)
                     })))
             .catch(err => errorHandler(err, 'paginacionContratista'))
+    //* 11
+    llaves = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.id)
+            .then(item => item.$get('Llave'))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'Usuariollaves'))
+
+    //* 11
+    ligarllaves = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$add('Llave', req.params.llave))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'ligarUsuariollaves'))
+
+    //* 11
+    desligarllaves = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$remove('Llave', req.params.llave))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'desligarUsuariollaves'))
+    
+    //* 12
+    avatares = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.id)
+            .then(item => item.$get('Avatares'))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'Usuarioavatares'))
+
+    //* 12
+    ligaravatares = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$add('Avatares', req.params.avatar))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'ligarUsuarioavatares'))
+
+    //* 12
+    desligaravatares = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$remove('Avatares', req.params.avatar))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'desligarUsuarioavatares'))
+
+    
+    //* 13
+    logs = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.id)
+            .then(item => item.$get('Logs'))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'Usuariologs'))
+
+    //* 13
+    ligarlogs = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$add('Logs', req.params.log))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'ligarUsuariologs'))
+
+    //* 13
+    desligarlogs = (req: Request, res: Response, next: NextFunction) =>
+        Usuario.findById(req.params.usuario)
+            .then(item => item.$remove('Logs', req.params.log))
+            .then(result => res.status(200).jsonp(result))
+            .catch(err => errorHandler(err, 'desligarUsuariologs'))
+
+    
     //* 5
     inversionistas = (req: Request, res: Response, next: NextFunction) =>
         Usuario.findById(req.params.id)
