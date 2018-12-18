@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core'
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../servicios/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -9,13 +9,13 @@ import * as _ from 'lodash'
   selector: 'app-login',
   templateUrl: './login.component.pug',
   styleUrls: ['./login.component.styl'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
     registroForm: FormGroup;
-	inicioIncorecto = false;
-
+    inicioIncorecto = false;
 	constructor(
         public dialogRef: MatDialogRef<LoginComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 			.then(response => response ? this.luego() : null)
 			// .then(response => response? null: this.router.navigate(['/admin']))
 		}
-	}
+    }
 
 	ngOnInit() {
 
@@ -49,7 +49,8 @@ export class LoginComponent implements OnInit {
             apellido: ['', Validators.required],
             correo: ['', Validators.required],
             password: ['', Validators.required],
-            repeatpassword: ['', Validators.required]
+            repeatpassword: ['', Validators.required],
+            tipo: ['', Validators.required]
 		});
 
 
@@ -61,33 +62,55 @@ export class LoginComponent implements OnInit {
         this.dialogRef.close()
     }
 
-    registrar(form: FormGroup){
-        console.log("estoy aqui")
+    registrar(form: FormGroup, ){
 
-        if (form.controls.correo.valid &&
-            form.controls.nombre.valid &&
-            form.controls.apellido.valid &&
-			form.controls.password.valid &&
-			form.controls.repeatpassword.valid &&
-			(form.controls.password.value == form.controls.repeatpassword.value)) {
-
-			let usuario = {
-                nombre: form.controls.nombre.value,
-                apellido: form.controls.apellido.value,
-                correo: form.controls.correo.value,
-                Llave : {
-                        'password' : form.controls.password.value
+        if(form.controls.tipo.value === true){
+            if (form.controls.correo.valid &&
+                form.controls.nombre.valid &&
+                form.controls.apellido.valid &&
+                form.controls.password.valid &&
+                form.controls.repeatpassword.valid &&
+                (form.controls.password.value == form.controls.repeatpassword.value)) {
+    
+                let usuario = {
+                    nombre: form.controls.nombre.value,
+                    apellido: form.controls.apellido.value,
+                    correo: form.controls.correo.value,
+                    Llave : {
+                            'password' : form.controls.password.value
+                        }
                     }
-                }
-
-			this.auth.registrar(usuario)
-			.then(response => {
-                this.router.navigate(['registro'])
-                this.dialogRef.close()
-            })
-		}
-
-
+    
+                this.auth.registrar(usuario)
+                .then(response => {
+                    this.router.navigate(['registro'])
+                    this.dialogRef.close()
+                })
+            }
+        }else{
+            if (form.controls.correo.valid &&
+                form.controls.nombre.valid &&
+                form.controls.apellido.valid &&
+                form.controls.password.valid &&
+                form.controls.repeatpassword.valid &&
+                (form.controls.password.value == form.controls.repeatpassword.value)) {
+    
+                let usuario = {
+                    nombre: form.controls.nombre.value,
+                    apellido: form.controls.apellido.value,
+                    correo: form.controls.correo.value,
+                    Llave : {
+                            'password' : form.controls.password.value
+                        }
+                    }
+    
+                this.auth.registrar(usuario)
+                .then(response => {
+                    this.router.navigate(['inversionista'])
+                    this.dialogRef.close()
+                })
+            }
+        }
     }
 
     luego(){

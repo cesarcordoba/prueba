@@ -42,7 +42,7 @@ export class AutentificacionController {
 
 		passport.use('registro', new localStrategy.Strategy({
 			usernameField: 'correo', passwordField: 'Llave[password]', passReqToCallback: true
-		}, (req, username, password, done) => Usuario.findOrCreate({ where: { 'correo': username }, include: [ Llave ], defaults: Object.assign(req.body, {  tipo : 'usuario', status : 0 })})
+		}, (req, username, password, done) => Usuario.findOrCreate({ where: { 'correo': username }, include: [ Llave ], defaults: Object.assign(req.body, {  tipo : 'inversionista', status : 1 })})
 			.spread((user, created) => created ? done(null, user)  : done(null, false)).error(err => done(err, null))));
 
 		passport.use('twitter', new twitterStrategy.Strategy({
@@ -184,8 +184,8 @@ export class AutentificacionController {
 							apellido : profile.name.familyName,
 							correo: profile.emails[0].value,
 							sexo: profile.gender,
-							status : 0,
-							tipo : 'usuario'
+							status : 1,
+							tipo : 'inversionista'
 						},
 						include: [Llave]
 					}).spread((user: Usuario, created) =>

@@ -51,6 +51,7 @@ export class MainComponent implements OnInit, OnDestroy {
 		this.us.obtenerUsuario()
 		.subscribe(user => {
 			this.usuario = user
+			console.log(this.usuario)
 		})
 	}
 

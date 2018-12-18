@@ -12,6 +12,7 @@ export class Usuario {
 
     constructor(arg) {
         Object.entries(arg).forEach(n => this[n[0]] = n[1])
+        this.obtenerAvatares()
     }
 
     obtenerAvatares(){
@@ -29,8 +30,23 @@ export class Usuario {
         })
     }
 
+    getTipo(){
+        if(this.tipo === "contratista"){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
    
-
+    setTipo(check){
+        if(check === true){
+            this.tipo = "contratista"
+        }else{
+            this.tipo = "inversionista"
+        }
+    }
 
 
 }

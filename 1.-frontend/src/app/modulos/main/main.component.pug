@@ -9,7 +9,7 @@ main
                     button(mat-button, [routerLink]="link.path" ) {{link.label}}
             .menu
                 div(*ngIf="usuario === null")
-                    button(mat-button, (click)="login()") 
+                    button(mat-button, (click)="login()")
                         mat-icon account_circle
                 div(*ngIf="usuario !== null")
                     button.avatarbutton(mat-button, [mat-menu-trigger-for]="menuUser")
